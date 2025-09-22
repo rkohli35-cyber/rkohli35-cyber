@@ -1,0 +1,89 @@
+# Fail2Ban Local Configuration
+# Place this in /etc/fail2ban/jail.local
+
+[DEFAULT]
+# Ban duration (in seconds)
+bantime = 3600
+
+# Time window for failed attempts (in seconds)
+findtime = 600
+
+# Number of failures before a ban
+maxretry = 3
+
+# Backend to use for monitoring
+backend = systemd
+
+# Email notifications (optional)
+destemail = admin@example.com
+sender = fail2ban@example.com
+mta = sendmail
+action = %(action_mw)s
+
+# Whitelist IPs (space-separated)
+ignoreip = 127.0.0.1/8 ::1 192.168.1.0/24
+
+[sshd]
+enabled = true
+port = ssh
+filter = sshd
+logpath = %(sshd_log)s
+backend = %(sshd_backend)s
+maxretry = 3
+bantime = 1800
+
+[apache-auth]
+enabled = false
+port = http,https
+filter = apache-auth
+logpath = /var/log/apache2/*error.log
+maxretry = 3
+
+[apache-badbots]
+enabled = false
+port = http,https
+filter = apache-badbots
+logpath = /var/log/apache2/*access.log
+maxretry = 3
+
+[apache-noscript]
+enabled = false
+port = http,https
+filter = apache-noscript
+logpath = /var/log/apache2/*access.log
+maxretry = 3
+
+[apache-overflows]
+enabled = false
+port = http,https
+filter = apache-overflows
+logpath = /var/log/apache2/*error.log
+maxretry = 3
+
+[nginx-http-auth]
+enabled = false
+port = http,https
+filter = nginx-http-auth
+logpath = /var/log/nginx/error.log
+maxretry = 3
+
+[nginx-noscript]
+enabled = false
+port = http,https
+filter = nginx-noscript
+logpath = /var/log/nginx/access.log
+maxretry = 3
+
+[nginx-badbots]
+enabled = false
+port = http,https
+filter = nginx-badbots
+logpath = /var/log/nginx/access.log
+maxretry = 3
+
+[nginx-botsearch]
+enabled = false
+port = http,https
+filter = nginx-botsearch
+logpath = /var/log/nginx/access.log
+maxretry = 3
