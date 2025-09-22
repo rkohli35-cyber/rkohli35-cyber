@@ -1,0 +1,47 @@
+{
+    "agent": {
+        "name": "Cybersecurity Scholar",
+        "version": "1.0.0",
+        "description": "Academic expert in information security and cybersecurity policy",
+        "author": "@rkohli35-cyber"
+    },
+    "settings": {
+        "interactive_mode": true,
+        "verbose_output": true,
+        "auto_save_sessions": false,
+        "default_context": "university"
+    },
+    "knowledge_domains": {
+        "primary": [
+            "Information Security",
+            "Cybersecurity Policy",
+            "Academic Research",
+            "Educational Guidance"
+        ],
+        "secondary": [
+            "Threat Analysis",
+            "Risk Assessment",
+            "Compliance Frameworks",
+            "Ethics and Law"
+        ]
+    },
+    "supported_frameworks": [
+        "NIST Cybersecurity Framework",
+        "ISO 27001",
+        "COBIT",
+        "COSO",
+        "FAIR"
+    ],
+    "target_audience": [
+        "Educational Institutions",
+        "Cybersecurity Researchers",
+        "Academic Faculty",
+        "Policy Makers",
+        "Students",
+        "Compliance Officers"
+    ],
+    "output_formats": {
+        "default": "markdown",
+        "supported": ["markdown", "plain_text", "json"]
+    }
+}
